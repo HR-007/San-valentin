@@ -1,25 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Love You San Valentin by AlexDev</title>
-    <link rel="icon" type="image/x-icon" href="Love_files/icon.png">
-    <meta name="language" content="es-ES">
-    <meta name="title" content="title">
-    <link type="text/css" rel="stylesheet" href="./Love_files/default.css">
-    <script type="text/javascript" src="./Love_files/jquery.min.js"></script>
-    <script type="text/javascript" src="./Love_files/jscex.min.js"></script>
-    <script type="text/javascript" src="./Love_files/jscex-parser.js"></script>
-    <script type="text/javascript" src="./Love_files/jscex-jit.js"></script>
-    <script type="text/javascript" src="./Love_files/jscex-builderbase.min.js"></script>
-    <script type="text/javascript" src="./Love_files/jscex-async.min.js"></script>
-    <script type="text/javascript" src="./Love_files/jscex-async-powerpack.min.js"></script>
-    <script type="text/javascript" src="./Love_files/functions.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./Love_files/love.js" charset="utf-8"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Love You San Valentin by AlexDev</title>
+  <link rel="icon" type="image/x-icon" href="Love_files/icon.png">
+  <meta name="language" content="es-ES">
+  <meta name="title" content="title">
+  <link type="text/css" rel="stylesheet" href="./Love_files/default.css">
+
+  <script type="text/javascript" src="./Love_files/jquery.min.js"></script>
+  <script type="text/javascript" src="./Love_files/jscex.min.js"></script>
+  <script type="text/javascript" src="./Love_files/jscex-parser.js"></script>
+  <script type="text/javascript" src="./Love_files/jscex-jit.js"></script>
+  <script type="text/javascript" src="./Love_files/jscex-builderbase.min.js"></script>
+  <script type="text/javascript" src="./Love_files/jscex-async.min.js"></script>
+  <script type="text/javascript" src="./Love_files/jscex-async-powerpack.min.js"></script>
+  <script type="text/javascript" src="./Love_files/functions.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./Love_files/love.js" charset="utf-8"></script>
+
+  <style>
+    /* Botón flotante por si el navegador bloquea autoplay */
+    #musicBtn{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 9999;
+      border: 0;
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.15);
+      display: none; /* aparece solo si autoplay falla */
+    }
+  </style>
 </head>
 
- <!-- 
-
+<!--
 Contáctame:
 
     * Invitame un café
@@ -29,49 +46,95 @@ Contáctame:
  https://alexxdev.vercel.app
 
     * Sigueme en tiktok
- https://www.tiktok.com/@alexx.dev?is_from_webapp=1&sender_device=pc 
- 
+ https://www.tiktok.com/@alexx.dev?is_from_webapp=1&sender_device=pc
+
     *Canal de WhatsApp
  https://whatsapp.com/channel/0029VazQEXq90x2vIdNkrH1p
 
- 
  WhatsApp: +52 1 55 6628 1018
-
 -->
 
 <body>
-    <div id="main">
-        <div id="error">
-            Tu navegador que estás usando no es compatible con el contenido que se va a mostrar. 
-            Por favor, usa Google (<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>) 
-            o Firefox (<a href="http://firefox.com.cn/download/">Firefox</a>)~
-        </div>
+  <!-- ✅ Audio de fondo -->
+  <audio id="bgMusic" preload="auto" loop>
+    <source src="Love_files/audio.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
 
-        <div id="wrap">
-            <div id="text">
-                <div id="code">
-                    <span class="say">Para una hermosa reinita:</span><br><br>
-                    <span class="say">Aunque se encuentre de viaje, la distancia no impide demostrar cariño.</span><br><br>
-                    <span class="say">Cada 💗 es un día soñando con coincidir.</span><br><br>
-                    <span class="say"><span class="space"></span> !Feliz           San Valentín 🌹!</span>
-                </div>
-            </div>
-            <div id="clock-box">
-                <a>Mi admiración</a>
-                <a>por usted</a> comenzó hace...
-                <div id="clock"></div>
-            </div>
+  <!-- Botón si autoplay es bloqueado -->
+  <button id="musicBtn" type="button">🎵 Activar música</button>
 
-            <canvas id="canvas" width="1100" height="680"></canvas>
-        </div>
+  <div id="main">
+    <div id="error">
+      Tu navegador que estás usando no es compatible con el contenido que se va a mostrar.
+      Por favor, usa Google (<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)
+      o Firefox (<a href="http://firefox.com.cn/download/">Firefox</a>)~
     </div>
 
-    <script src="script.js"></script>
+    <div id="wrap">
+      <div id="text">
+        <div id="code">
+          <span class="say">Para una hermosa reinita:</span><br><br>
+          <span class="say">Aunque se encuentre de viaje, la distancia no impide demostrar cariño.</span><br><br>
+          <span class="say">Cada 💗 es un día soñando con coincidir.</span><br><br>
+          <span class="say"><span class="space"></span> ¡Feliz San Valentín 🌹!</span>
+        </div>
+      </div>
 
+      <div id="clock-box">
+        <a>Mi admiración</a>
+        <a>por usted</a> comenzó hace...
+        <div id="clock"></div>
+      </div>
+
+      <canvas id="canvas" width="1100" height="680"></canvas>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+    (function () {
+      const audio = document.getElementById("bgMusic");
+      const btn = document.getElementById("musicBtn");
+
+      // intenta reproducir al cargar
+      const tryPlay = async () => {
+        try {
+          await audio.play();
+          btn.style.display = "none";
+        } catch (e) {
+          // autoplay bloqueado
+          btn.style.display = "inline-block";
+        }
+      };
+
+      // click en botón
+      btn.addEventListener("click", async () => {
+        try {
+          await audio.play();
+          btn.style.display = "none";
+        } catch (e) {}
+      });
+
+      // primer click/tap en cualquier parte desbloquea audio
+      const unlock = async () => {
+        try {
+          await audio.play();
+          btn.style.display = "none";
+          document.removeEventListener("click", unlock);
+          document.removeEventListener("touchstart", unlock);
+        } catch (e) {}
+      };
+
+      window.addEventListener("load", tryPlay);
+      document.addEventListener("click", unlock);
+      document.addEventListener("touchstart", unlock);
+    })();
+  </script>
 </body>
 
- <!-- 
-
+<!--
 Contáctame:
 
     * Invitame un café
@@ -81,13 +144,11 @@ Contáctame:
  https://alexxdev.vercel.app
 
     * Sigueme en tiktok
- https://www.tiktok.com/@alexx.dev?is_from_webapp=1&sender_device=pc 
- 
+ https://www.tiktok.com/@alexx.dev?is_from_webapp=1&sender_device=pc
+
     *Canal de WhatsApp
  https://whatsapp.com/channel/0029VazQEXq90x2vIdNkrH1p
 
- 
  WhatsApp: +52 1 55 6628 1018
-
 -->
 </html>
